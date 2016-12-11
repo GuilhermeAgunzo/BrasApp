@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         new DataReader(this,dataUrl).execute();
 
-        new CountDownTimer(3000,1000){
+        new CountDownTimer(60000,1000){
             public void onTick(long millisUntilFinished) {
                 Intent mServiceIntent = new Intent(MainActivity.this, RSSPullService.class);
                 mServiceIntent.putExtra("dataUrl",dataUrl);
