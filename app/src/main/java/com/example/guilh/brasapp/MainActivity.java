@@ -38,13 +38,14 @@ public class MainActivity extends AppCompatActivity {
 
         new CountDownTimer(60000,1000){
             public void onTick(long millisUntilFinished) {
+
+            }
+
+            public void onFinish() {
                 Intent mServiceIntent = new Intent(MainActivity.this, RSSPullService.class);
                 mServiceIntent.putExtra("dataUrl",dataUrl);
                 startService(mServiceIntent);
                 processData(RSSPullService.response);
-            }
-
-            public void onFinish() {
                 this.start();
             }
         }.start();
